@@ -1,7 +1,7 @@
 <script>
 let id = 0
 let newItem = $state('')
-let items = $state([{id: id++, item: 'Buy apples'}, {id:id++, item: 'Buy oranges'}])
+let items = $state([])
 	
 function addItem(evt) {
     if (evt.key === 'Enter') {
@@ -27,6 +27,9 @@ function clickHandler() {
 Click the Delete button to delete the selected item from To-Do list.</h4>
 <input type="text" bind:value={newItem} onkeydown={addItem} /> 
 <button onclick= {clickHandler}>Add</button>
+{#if items.length === 0}
+<p>Todo list is empty. Please add todo item.</p>
+{/if}
 <h4> To-Do list: </h4>
 <ul>
 {#each items as todo (todo.id)}
