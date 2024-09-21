@@ -12,7 +12,13 @@ function addItem(evt) {
 }
 
 function removeItem(todo) {
-  items = items.filter((t) => t !== todo)
+    items = items.filter((t) => t !== todo)
+}
+
+function clickHandler() {
+    items.push({id:id++, item: newItem})
+    items = items
+    newItem = ''
 }
 </script>
 
@@ -20,6 +26,7 @@ function removeItem(todo) {
 <h4> Enter new item in text box, then presss Enter key to add it to To-Do list. 
 Click the Delete button to delete the selected item from To-Do list.</h4>
 <input type="text" bind:value={newItem} onkeydown={addItem} /> 
+<button onclick= {clickHandler}>Add</button>
 <h4> To-Do list: </h4>
 <ul>
 {#each items as todo (todo.id)}
