@@ -1,16 +1,18 @@
 <script>
+let id = 0
 let newItem = $state('')
-let items = $state(['Buy apples', 'Buy oranges', 'Buy bananas'])
+let items = $state([{id: id++, item: 'Buy apples'}, {id:id++, item: 'Buy oranges'}])
 	
 function addItem(evt) {
     if (evt.key === 'Enter') {
-      items = [...items, newItem];
+	  items.push({id:id++, item: newItem})
+	  items = items
       newItem = '';
     }
 }
 
-function removeItem(item) {
-  items = items.filter((t) => t !== item)
+function removeItem(todo) {
+  items = items.filter((t) => t !== todo)
 }
 </script>
 
@@ -20,10 +22,10 @@ Click the Delete button to delete the selected item from To-Do list.</h4>
 <input type="text" bind:value={newItem} onkeydown={addItem} /> 
 <h4> To-Do list: </h4>
 <ul>
-{#each items as item}
+{#each items as todo (todo.id)}
    <li>
-      { item }
-      <button onclick={removeItem(item)}>Delete</button>
+      { todo.item }
+      <button onclick={removeItem(todo)}>Delete</button>
    </li>
 {/each}
 </ul>
