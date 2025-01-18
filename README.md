@@ -1,4 +1,4 @@
-# To-Do-List, implemented by Svelte 5 Preview
+## Todo List, implemented by Svelte 5, SvelteKit, JavaScript, HTML and CSS
 ## In the current implementation, a new item can be added to list and a selected item can be deleted from list. 
 
 # create-svelte
