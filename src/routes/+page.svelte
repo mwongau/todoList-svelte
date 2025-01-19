@@ -23,7 +23,7 @@ function clickHandler() {
 }
 </script>
 
-<h3> To-Do list implemeted by Svelte 5</h3>
+<h3> To-Do list implemeted by Svelte 5 and SvelteKit</h3>
 
 <input class="myinput" type="text" bind:value={newItem} onkeydown={addItem} /> 
 <button class="mybutton" onclick= {clickHandler}>Add</button>
